@@ -1,0 +1,15 @@
+# Filediff backup files
+*.orig
+
+# macOS template
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Custom
+.vscode/
+.idea/
+*.exe
