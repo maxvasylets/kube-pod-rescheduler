@@ -1,6 +1,6 @@
 package main
 
-import "github.com/maxvasylets/kube-pod-resheduler/cmd"
+import "github.com/maxvasylets/kube-pod-rescheduler/cmd"
 
 func main() {
 	cmd.Execute()
