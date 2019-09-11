@@ -2,6 +2,7 @@ package controller
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 
@@ -12,14 +13,24 @@ import (
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/cache"
 	"k8s.io/client-go/tools/clientcmd"
+
+	"github.com/maxvasylets/kube-pod-rescheduler/utils"
 )
 
 var clientset kubernetes.Interface
+var evictionPolicyGroupVersion string
 
 // Run controller
 func Run() {
 
-	clientset, _ = getClient()
+	var err error
+	clientset, err = getClient()
+
+	evictionPolicyGroupVersion, err = utils.SupportEviction(clientset)
+	if err != nil || len(evictionPolicyGroupVersion) == 0 {
+		log.Panic(err.Error())
+		return
+	}
 
 	factory := informers.NewSharedInformerFactoryWithOptions(clientset, 0, informers.WithNamespace("default"))
 	informer := factory.Core().V1().Pods().Informer()
@@ -74,7 +85,7 @@ func onUpdate(oldObj, newObj interface{}) {
 }
 
 func execConditions(pod *corev1.Pod) {
-	_, annotationExists := pod.ObjectMeta.Annotations["kube-pod-resheduler/eviction"]
+	_, annotationExists := pod.ObjectMeta.Annotations[utils.EvictionAnnotation]
 	if !annotationExists {
 		fmt.Println("conditions called")
 	}
