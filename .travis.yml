@@ -1,0 +1,32 @@
+language: go
+go:
+- 1.12
+branches:
+  only:
+  - master
+  - develop
+services:
+- docker
+env:
+  global:
+  - GO111MODULE=on
+  - secure: ay0+d7kEd+rzacDCqSwGAt6UO+YsY5eU6lSD/3n+o97Q3oK26WJChd4wZwEHgt2rlw0sY6yjFp+hmv2t/6+2ytAAsloePMRx7k+uTUuRaYiuHv4qgjROlV5lqBSsEgaGQmJ8ZtfbTUztGPSHD1aKnd+4Sse6j3yZ8qsylXvr/ij/mhtz07ldKODZgiRubnBMV10opBylgueNwUIaKXFp+i/R3Itvojb68WzADFt9rHR0C6P9nGo4QMhks6z6r4jJmBFU7VtwnKc0gNBm0cpa6CBGa1Iwkke1xjMPfndVZhWOR5lmnxdHBJpLBNZoYUBOrUrlEwsnH/mmkSqvBHriWB0+/lww6BmwK4n1x1/1xuwfmfhxP4cCZrjUywGYiD65FZX7zQzYUN8xweIu/57lmJgiC7bdTJ0+pUQ0lsLRBTeAsQfCVbJFT3nV+o5VDAvr7Sxyv0U0lm6SsffA/OuiSWJPpZaMT0DMrGLLbw13kPffoK4nNJTzv5A3zKQNq6XIpkwaNku+KZPzjdpppAsFiIKriRPN+I0tpkeHI1Hodm/wUmtEshBUYOswT+XhguUQRg2IXZ54PRbeQxLtIhXhoThc3y5tIBQ5sEob2v7c/v2tIcfiHb10fWM3P9a31K6aBB0fXcnmLsDnXf+c/pPGR8fgmyEgN+eMuWZ6zZd7z0U=
+  - secure: aQThnR+OTxjCCHQ34DPhzaO5KEiGEs8YZZt22zqPFbBN+EFcv8TfuNt2jAaueiwaFbwnYaBLaLH/yCQoO5/nqPtZFgd4rPbnN4MbzZ/pXkn4nKXRFwcPUXw1VkX85rrvZTDfjnNt3XRmI+1Vn33E0AwXkS6Ir5yE2Yl5s+HlohZ86QgtCeuorNizF2QEdxcK4qFpvF7y7juSRXk2zEwuSc8jKWOS9NN4ZWez3/8kwK48AfNe5eZ+wjqVdq4eRoVLy3zaPRQxbhEUnJSsfNdn2f/lexUPF3MBsRUA1hVNyHgNVABVwxSq8tTqdkTn/P0+nFXH8JFinF9LYnvCtI681jilKAGYh3JkXJC9xSQfXj2sFvmWh06ascRxntpMvGNb1szsVK/xN46mvGzy9YokUhAQUG080kT/9qtORRuaufTEmJxO6/RwFk2jUjvasIkNoshRJBKXcuyjVxYqb58zbqqIwuVoEDILPjhAys66/Oyk6pqWSc2AxZJifN9J9105/yxTaAPLlqe/uitnNgVb/lVZLZpagktTB+lUyn+0FyHdQ7zMxJifJgUi7jRPXTj4HrJAPCgdIqugAZ9QylLvUVininKe7ubk6KoStWbKFieV2e9Z/hpQkb4c6xpVUsJQ66kmu+AFPDF/2Lw/B9njGqHrBOuVOuoAYhKbAtwb8K8=
+before_script:
+- export BUILD_DATE=`date +%FT%T%z`
+- export VERSION=${TRAVIS_TAG:-0.0.0}
+- export LDFLAG_LOCATION=main
+- export LDFLAGS="-X ${LDFLAG_LOCATION}.version=${VERSION} -X ${LDFLAG_LOCATION}.buildDate=${BUILD_DATE}
+  -X ${LDFLAG_LOCATION}.buildNumber=${TRAVIS_BUILD_NUMBER} -X ${LDFLAG_LOCATION}.gitCommit=${TRAVIS_COMMIT}"
+- export PATH=$PATH:$PWD
+- docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}" quay.io
+script:
+- go test .
+- go build -ldflags "${LDFLAGS}" -o build/kube-pod-rescheduler
+- chmod +x kube-pod-rescheduler
+- kube-pod-rescheduler
+- docker build -t quay.io/maxvasylets/kube-pod-rescheduler:${VERSION}-${TRAVIS_BUILD_NUMBER} .
+after_success:
+- docker tag quay.io/maxvasylets/kube-pod-rescheduler:${VERSION}-${TRAVIS_BUILD_NUMBER} quay.io/maxvasylets/kube-pod-rescheduler:latest
+- docker push quay.io/maxvasylets/kube-pod-rescheduler:${VERSION}-${TRAVIS_BUILD_NUMBER}
+- docker push quay.io/maxvasylets/kube-pod-rescheduler:latest

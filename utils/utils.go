@@ -24,7 +24,7 @@ import (
 const (
 	EvictionKind        = "Eviction"
 	EvictionSubresource = "pods/eviction"
-	EvictionAnnotation  = "kube-pod-resheduler/eviction"
+	EvictionAnnotation  = "kube-pod-rescheduler/eviction"
 )
 
 // SupportEviction uses Discovery API to find out if the server support eviction subresource

@@ -14,7 +14,7 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "kube-pod-resheduler",
+	Use:   "kube-pod-rescheduler",
 	Short: "Kubernetes controller that helps to evict and reschedule pods from the node when they're stuck on it for some reasons.",
 	Long:  "Kubernetes controller that helps to evict and reschedule pods from the node when they're stuck on it for some reasons.",
 }
@@ -31,7 +31,7 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 
-	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "config file (default is $HOME/.kube-pod-resheduler.yaml)")
+	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "config file (default is $HOME/.kube-pod-rescheduler.yaml)")
 	rootCmd.PersistentFlags().BoolP("dry-run", "d", false, "Don't apply changes to the cluster, just print them")
 
 	// Hide help command
@@ -54,9 +54,9 @@ func initConfig() {
 			os.Exit(1)
 		}
 
-		// Search config in home directory with name ".kube-pod-resheduler" (without extension).
+		// Search config in home directory with name ".kube-pod-rescheduler" (without extension).
 		viper.AddConfigPath(home)
-		viper.SetConfigName(".kube-pod-resheduler")
+		viper.SetConfigName(".kube-pod-rescheduler")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match
