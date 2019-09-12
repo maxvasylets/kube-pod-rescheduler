@@ -10,13 +10,28 @@ import (
 	"github.com/spf13/viper"
 )
 
+var (
+	gitCommit   string
+	version     string
+	buildDate   string
+	buildNumber string
+)
+
 var cfgFile string
+var showVersion bool
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "kube-pod-rescheduler",
-	Short: "Kubernetes controller that helps to evict and reschedule pods from the node when they're stuck on it for some reasons.",
-	Long:  "Kubernetes controller that helps to evict and reschedule pods from the node when they're stuck on it for some reasons.",
+	Short: "Kubernetes controller that helps to evict and reschedule pods from the node when they're stuck on it by some reasons.",
+	Long:  "Kubernetes controller that helps to evict and reschedule pods from the node when they're stuck on it by some reasons.",
+	Run: func(cmd *cobra.Command, args []string) {
+		if showVersion {
+			fmt.Printf("kube-pod-rescheduler\n\nversion: %v\ncommit: %v\ndate: %v\nbuildNumber: %v\n\n", version, gitCommit, buildDate, buildNumber)
+		} else {
+			cmd.Help()
+		}
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -29,8 +44,9 @@ func Execute() {
 }
 
 func init() {
-	cobra.OnInitialize(initConfig)
+	cobra.OnInitialize(onInitialize)
 
+	rootCmd.Flags().BoolVarP(&showVersion, "version", "v", false, "Show version and related information")
 	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "config file (default is $HOME/.kube-pod-rescheduler.yaml)")
 	rootCmd.PersistentFlags().BoolP("dry-run", "d", false, "Don't apply changes to the cluster, just print them")
 
@@ -41,8 +57,9 @@ func init() {
 	})
 }
 
-// initConfig reads in config file and ENV variables if set.
-func initConfig() {
+// onInitialize reads in config file and ENV variables if set.
+func onInitialize() {
+
 	if cfgFile != "" {
 		// Use config file from the flag.
 		viper.SetConfigFile(cfgFile)
