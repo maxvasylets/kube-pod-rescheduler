@@ -15,7 +15,7 @@ env:
 before_script:
 - export BUILD_DATE=`date +%FT%T%z`
 - export VERSION=${TRAVIS_TAG:-0.0.0}
-- export LDFLAG_LOCATION=main
+- export LDFLAG_LOCATION=github.com/maxvasylets/kube-pod-rescheduler/cmd
 - export LDFLAGS="-X ${LDFLAG_LOCATION}.version=${VERSION} -X ${LDFLAG_LOCATION}.buildDate=${BUILD_DATE}
   -X ${LDFLAG_LOCATION}.buildNumber=${TRAVIS_BUILD_NUMBER} -X ${LDFLAG_LOCATION}.gitCommit=${TRAVIS_COMMIT}"
 - export PATH=$PATH:$PWD
