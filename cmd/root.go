@@ -27,7 +27,7 @@ var rootCmd = &cobra.Command{
 	Long:  "Kubernetes controller that helps to evict and reschedule pods from the node when they're stuck on it by some reasons.",
 	Run: func(cmd *cobra.Command, args []string) {
 		if showVersion {
-			fmt.Printf("kube-pod-rescheduler\n\nversion: %v\nbuildNumber: %v\ncommit: %v\ndate: %v\n\n", version, gitCommit, buildDate, buildNumber)
+			fmt.Printf("kube-pod-rescheduler\n\nversion: %v\nbuildNumber: %v\ncommit: %v\ndate: %v\n\n", version, buildNumber, gitCommit, buildDate)
 		} else {
 			cmd.Help()
 		}
