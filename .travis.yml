@@ -24,10 +24,9 @@ before_script:
 script:
 - go test .
 - go build -ldflags "${LDFLAGS}" -o build/kube-pod-rescheduler
-- chmod +x kube-pod-rescheduler
-- kube-pod-rescheduler
+- chmod +x build/kube-pod-rescheduler
+- build/kube-pod-rescheduler
 - docker build -t quay.io/maxvasylets/kube-pod-rescheduler:${VERSION}-${TRAVIS_BUILD_NUMBER} .
-after_success:
 - docker tag quay.io/maxvasylets/kube-pod-rescheduler:${VERSION}-${TRAVIS_BUILD_NUMBER}
   quay.io/maxvasylets/kube-pod-rescheduler:latest
 - docker push quay.io/maxvasylets/kube-pod-rescheduler:${VERSION}-${TRAVIS_BUILD_NUMBER}
