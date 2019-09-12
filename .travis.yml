@@ -10,8 +10,8 @@ services:
 env:
   global:
   - GO111MODULE=on
-  - secure: ay0+d7kEd+rzacDCqSwGAt6UO+YsY5eU6lSD/3n+o97Q3oK26WJChd4wZwEHgt2rlw0sY6yjFp+hmv2t/6+2ytAAsloePMRx7k+uTUuRaYiuHv4qgjROlV5lqBSsEgaGQmJ8ZtfbTUztGPSHD1aKnd+4Sse6j3yZ8qsylXvr/ij/mhtz07ldKODZgiRubnBMV10opBylgueNwUIaKXFp+i/R3Itvojb68WzADFt9rHR0C6P9nGo4QMhks6z6r4jJmBFU7VtwnKc0gNBm0cpa6CBGa1Iwkke1xjMPfndVZhWOR5lmnxdHBJpLBNZoYUBOrUrlEwsnH/mmkSqvBHriWB0+/lww6BmwK4n1x1/1xuwfmfhxP4cCZrjUywGYiD65FZX7zQzYUN8xweIu/57lmJgiC7bdTJ0+pUQ0lsLRBTeAsQfCVbJFT3nV+o5VDAvr7Sxyv0U0lm6SsffA/OuiSWJPpZaMT0DMrGLLbw13kPffoK4nNJTzv5A3zKQNq6XIpkwaNku+KZPzjdpppAsFiIKriRPN+I0tpkeHI1Hodm/wUmtEshBUYOswT+XhguUQRg2IXZ54PRbeQxLtIhXhoThc3y5tIBQ5sEob2v7c/v2tIcfiHb10fWM3P9a31K6aBB0fXcnmLsDnXf+c/pPGR8fgmyEgN+eMuWZ6zZd7z0U=
-  - secure: aQThnR+OTxjCCHQ34DPhzaO5KEiGEs8YZZt22zqPFbBN+EFcv8TfuNt2jAaueiwaFbwnYaBLaLH/yCQoO5/nqPtZFgd4rPbnN4MbzZ/pXkn4nKXRFwcPUXw1VkX85rrvZTDfjnNt3XRmI+1Vn33E0AwXkS6Ir5yE2Yl5s+HlohZ86QgtCeuorNizF2QEdxcK4qFpvF7y7juSRXk2zEwuSc8jKWOS9NN4ZWez3/8kwK48AfNe5eZ+wjqVdq4eRoVLy3zaPRQxbhEUnJSsfNdn2f/lexUPF3MBsRUA1hVNyHgNVABVwxSq8tTqdkTn/P0+nFXH8JFinF9LYnvCtI681jilKAGYh3JkXJC9xSQfXj2sFvmWh06ascRxntpMvGNb1szsVK/xN46mvGzy9YokUhAQUG080kT/9qtORRuaufTEmJxO6/RwFk2jUjvasIkNoshRJBKXcuyjVxYqb58zbqqIwuVoEDILPjhAys66/Oyk6pqWSc2AxZJifN9J9105/yxTaAPLlqe/uitnNgVb/lVZLZpagktTB+lUyn+0FyHdQ7zMxJifJgUi7jRPXTj4HrJAPCgdIqugAZ9QylLvUVininKe7ubk6KoStWbKFieV2e9Z/hpQkb4c6xpVUsJQ66kmu+AFPDF/2Lw/B9njGqHrBOuVOuoAYhKbAtwb8K8=
+  - secure: eEYvcMMMxsBM8EkjylxZVzfD70KoMiQ9uxnO1mWjIi3mYaLj9NZIWgxEAweg7uq4EQ+B+q5kYQP2HdgRZJSlYCoWOgPVbFS+jHBqRiquPN4NhO6QHICxfuvAylbSBhqkxtOAf4HFBA/a1vkuSp8RQ+rdIteXceMGJimyYwffKUN7UTsXnOwRRYrFfYW5Gr9X2vS1y1acRZGZymwsLzCcXNZIEgjzYmMRhqhv+vVR4+PHUDWOhyfXxoqncxqOjAl5hLwGYxCoeJFZ5GU1aZ7GlJl7s/jOno14uoqhiMXBG0znzIJV16EF8XGfxYoiGWeNIJCyHiDA1gRbVAiL7IeorRueQ+xsNofk/i0wmw46Uxvf4uxcZhRCixV50pVKIjRMSmJDTte+Ddx5d0/Ureq7W04d2U5K6c9EaLsTfxjgNua6YJU8luCdg4wanRMxcBrIjJN6tLaIMLKuQMYEZZ/HLWLm3dQ+0rItNiNxzYpEE1hcpYzLspVZUJV2PrsE1RHqRkBWNE3dpSHHbSLvB+3LFrlubLfaAZB1kkOVxc3YdNYLHB+BxmGohVN8kbfbchfFww9dsPzaCzgf4xI13Bto9rP9MbHygK+LOR+P+YtI/WRd6m66LcSdpq5mUb7FAS4LQKGzmM4mdvTWoM8iLiDvyp2g4m2Xsx6bfx8CebTwYFk=
+  - secure: XRFHHasnaxqQ97/mX1gJl47FQfT6FC2rL2w8ovmLXd9OpgkAI0ZKr4IVggbuqnEOWfmR/JOigvSFZIwH1llqQkT/a48BR+lhDNI4lbwzBpk0EIxzGmw7kutqlUT8zX91kkUSokWj2Z1Xe7tnmHDoTMZ5eig6SbgZx4WF0hrxl/6ZjoZeFWxJTZiD2Px2myrwSF8xFHPQC6dyp3wuRhWDaAPvj0M6Djq257eKmobIw22JIrMUX8dTLuVq2HwMUPteUB55iFQ2pbPuQYE3v6sV9XglgNnoSwIW1ZAWf28HasUy/HddI/EWzNmthHIdHp+xi/QI/UVyklUckbUYPFy0QmJiRBT1KXKs9em0YAgpEifXNVvOjfNspD3+kkZa/0q26nWUU6VD/RIugf9faPgwSxvgjILetX2oS+Vn08lt97I3EUtGmf+cXtYqfjv6pBvDVLmQ6Mv/P/Y/f4TkiRA4/eTjB7zj0AIRZf8pvm5OVv+4Vr+3f1otfP7OWEm3ogNnnE6ZAY05iu9v8fzYQfA2v73jgsU5mnxqXbKfOrwqmXU1OgoCPGErg46akNWpHvN0uD58p3RDNyqHV4lXBng455qkB/dUo5/bRJbKejrxRg3Br2eH6imMDwuVJjO7AWKwt9YL/HkprR9AkFsfDekWfSZKmD6iHxDMsWcwV3HxQFA=
 before_script:
 - export BUILD_DATE=`date +%FT%T%z`
 - export VERSION=${TRAVIS_TAG:-0.0.0}
@@ -19,7 +19,8 @@ before_script:
 - export LDFLAGS="-X ${LDFLAG_LOCATION}.version=${VERSION} -X ${LDFLAG_LOCATION}.buildDate=${BUILD_DATE}
   -X ${LDFLAG_LOCATION}.buildNumber=${TRAVIS_BUILD_NUMBER} -X ${LDFLAG_LOCATION}.gitCommit=${TRAVIS_COMMIT}"
 - export PATH=$PATH:$PWD
-- docker login -u="${DOCKER_USERNAME}" -p="${DOCKER_PASSWORD}" quay.io
+- echo ${DOCKER_PASSWORD} | docker login -u="${DOCKER_USERNAME}" --password-stdin
+  quay.io
 script:
 - go test .
 - go build -ldflags "${LDFLAGS}" -o build/kube-pod-rescheduler
@@ -27,6 +28,7 @@ script:
 - kube-pod-rescheduler
 - docker build -t quay.io/maxvasylets/kube-pod-rescheduler:${VERSION}-${TRAVIS_BUILD_NUMBER} .
 after_success:
-- docker tag quay.io/maxvasylets/kube-pod-rescheduler:${VERSION}-${TRAVIS_BUILD_NUMBER} quay.io/maxvasylets/kube-pod-rescheduler:latest
+- docker tag quay.io/maxvasylets/kube-pod-rescheduler:${VERSION}-${TRAVIS_BUILD_NUMBER}
+  quay.io/maxvasylets/kube-pod-rescheduler:latest
 - docker push quay.io/maxvasylets/kube-pod-rescheduler:${VERSION}-${TRAVIS_BUILD_NUMBER}
 - docker push quay.io/maxvasylets/kube-pod-rescheduler:latest
