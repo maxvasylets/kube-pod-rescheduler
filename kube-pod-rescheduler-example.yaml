@@ -1,0 +1,4 @@
+conditions:
+    restartsCount:
+        enabled: false
+        counts: 1

@@ -14,6 +14,7 @@ import (
 	"k8s.io/client-go/tools/cache"
 	"k8s.io/client-go/tools/clientcmd"
 
+	"github.com/maxvasylets/kube-pod-rescheduler/conditions"
 	"github.com/maxvasylets/kube-pod-rescheduler/utils"
 )
 
@@ -22,7 +23,6 @@ var evictionPolicyGroupVersion string
 
 // Run controller
 func Run() {
-
 	var err error
 	clientset, err = getClient()
 
@@ -88,5 +88,6 @@ func execConditions(pod *corev1.Pod) {
 	_, annotationExists := pod.ObjectMeta.Annotations[utils.EvictionAnnotation]
 	if !annotationExists {
 		fmt.Println("conditions called")
+		conditions.RestartsCount(clientset, evictionPolicyGroupVersion, pod)
 	}
 }
