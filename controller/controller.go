@@ -89,5 +89,6 @@ func execConditions(pod *corev1.Pod) {
 	if !annotationExists {
 		fmt.Println("conditions called")
 		conditions.RestartsCount(clientset, evictionPolicyGroupVersion, pod)
+		conditions.PodStuck(clientset, evictionPolicyGroupVersion, pod)
 	}
 }
